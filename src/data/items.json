@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Banana",
+    "price": 2.99,
+    "imgUrl": "/imgs/banana.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Shoe",
+    "price": 29.99,
+    "imgUrl": "/imgs/newbalance.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Pikachu",
+    "price": 25.99,
+    "imgUrl": "/imgs/pikachu.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Volleyball",
+    "price": 79.99,
+    "imgUrl": "/imgs/volleyball.jpg"
+  }
+]
