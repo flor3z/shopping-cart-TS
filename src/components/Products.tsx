@@ -8,7 +8,7 @@ type ProductProps = {
 };
 
 const Products = ({ id, name, price, imgUrl }: ProductProps) => {
-  let quantity = 1;
+  let quantity = 0;
   return (
     <div
       key={id}
