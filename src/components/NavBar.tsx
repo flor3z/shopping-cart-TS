@@ -1,7 +1,10 @@
 import { Link, NavLink } from 'react-router-dom';
 import { BsCartFill } from 'react-icons/bs';
+import { useCartContext } from '../context/CartContext';
 
 export const NavBar = () => {
+  const { cartAmount } = useCartContext();
+
   return (
     <nav className="shadow-md mb-3 bg-white sticky">
       <div className="container mx-auto flex justify-between">
@@ -28,7 +31,7 @@ export const NavBar = () => {
           <button className="bg-transparent hover:bg-blue-500 p-3 border border-blue-500 rounded-full relative hover:border-transparent text-blue-500 hover:text-white">
             <BsCartFill className="w-6 h-6" />
             <div className="absolute -bottom-2 -right-2 z-40  bg-red-500 text-white rounded-full px-2 flex justify-center items-center">
-              1
+              {cartAmount}
             </div>
           </button>
         </div>
