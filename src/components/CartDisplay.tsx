@@ -1,6 +1,7 @@
 import { useCartContext } from '../context/CartContext';
 import { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
+import CartItem from '../components/CartItem';
 
 type CartProps = {
   isOpen: boolean;
@@ -47,10 +48,11 @@ const CartDisplay = ({ isOpen }: CartProps) => {
                           <button
                             type="button"
                             className="relative -m-2 p-2 text-gray-400 hover:text-gray-500"
-                            onClick={() => closeCart(false)}
+                            onClick={() => closeCart()}
                           >
                             <span className="absolute -inset-0.5" />
                             <span className="sr-only">Close panel</span>
+                            <span>X</span>
                           </button>
                         </div>
                       </div>
@@ -60,7 +62,11 @@ const CartDisplay = ({ isOpen }: CartProps) => {
                           <ul
                             role="list"
                             className="-my-6 divide-y divide-gray-200"
-                          ></ul>
+                          >
+                            {cartItems.map((item) => (
+                              <CartItem {...item} key={item.id} />
+                            ))}
+                          </ul>
                         </div>
                       </div>
                     </div>

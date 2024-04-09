@@ -31,6 +31,8 @@ export const CartContextProvider = ({ children }: CartContextProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
+  console.log(cartItems);
+
   const openCart = () => {
     setIsOpen(true);
   };
