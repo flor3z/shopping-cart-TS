@@ -18,10 +18,17 @@ const CartItem = ({ id, quantity }: CartItemProps) => {
       <img src={item?.imgUrl} className="h-28 w-28 object-contain" />
       <div>
         {item?.name}
-        {quantity > 0 && <span className="text-gray-400"> x{quantity}</span>}
+        {quantity > 0 && (
+          <span className="text-gray-400"> x{quantity}</span>
+        )}{' '}
+        <br />
+        <span className="text-gray-400">
+          {currencyFormat(item?.price || 0)}
+        </span>
       </div>
-      <span className="font-bold">
-        Total : ${item ? Math.round(item.price * quantity * 100) / 100 : ''}
+      <span className="font-normal">
+        {item ? currencyFormat(item.price * quantity) : ''}
+        {/* Total : ${item ? Math.round(item.price * quantity * 100) / 100 : ''} */}
       </span>
       <button
         onClick={() => removeItem(id)}

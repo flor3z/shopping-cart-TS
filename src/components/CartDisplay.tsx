@@ -1,7 +1,9 @@
 import { useCartContext } from '../context/CartContext';
-import { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import CartItem from '../components/CartItem';
+import currencyFormat from '../utilities/currencyFormat';
+import products from '../data/items.json';
 
 type CartProps = {
   isOpen: boolean;
@@ -51,7 +53,7 @@ const CartDisplay = ({ isOpen }: CartProps) => {
                             onClick={() => closeCart()}
                           >
                             <span className="absolute -inset-0.5" />
-                            <span className="sr-only">Close panel</span>
+
                             <span>X</span>
                           </button>
                         </div>
@@ -67,6 +69,18 @@ const CartDisplay = ({ isOpen }: CartProps) => {
                               <CartItem {...item} key={item.id} />
                             ))}
                           </ul>
+                          <div className="flex justify-end py-4 font-bold text-3xl">
+                            {currencyFormat(
+                              cartItems.reduce((total, currentItem) => {
+                                const item = products.find(
+                                  (product) => product.id === currentItem.id
+                                );
+                                return item
+                                  ? total + item.price * currentItem.quantity
+                                  : 0;
+                              }, 0)
+                            )}
+                          </div>
                         </div>
                       </div>
                     </div>
