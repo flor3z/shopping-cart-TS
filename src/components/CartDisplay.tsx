@@ -70,6 +70,7 @@ const CartDisplay = ({ isOpen }: CartProps) => {
                             ))}
                           </ul>
                           <div className="flex justify-end py-4 font-bold text-3xl">
+                            Total:{' '}
                             {currencyFormat(
                               cartItems.reduce((total, currentItem) => {
                                 const item = products.find(
